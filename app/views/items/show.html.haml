@@ -1,2 +1,8 @@
-%h1 Items#show
-%p Find me in app/views/items/show.html.haml
+%h1 Item Info
+= link_to "All Items", items_path
+.label Name
+%h2= @item.name
+.label Quantity
+%h2= @item.quantity
+.label Description
+%p= @item.description

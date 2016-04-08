@@ -1,8 +1,8 @@
 %h1 Character Info
 = link_to "All Characters", characters_path
-.character-label Name
+.label Name
 %h2= @character.name
-.character-label Nickname
+.label Nickname
 %h2= "\"#{@character.nickname}\""
-.character-label Bio
+.label Bio
 %p= @character.bio

@@ -5,6 +5,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @statistics = @character.statistics
   end
 
   def new

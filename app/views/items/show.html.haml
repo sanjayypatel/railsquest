@@ -6,3 +6,7 @@
 %h2= @item.quantity
 .label Description
 %p= @item.description
+%h2 Stats
+%ul
+  - @statistics.each do |statistic|
+    %li= "#{statistic.name}: #{statistic.value} / #{statistic.maximum}"

@@ -6,3 +6,7 @@
 %h2= "\"#{@character.nickname}\""
 .label Bio
 %p= @character.bio
+%h2 Stats
+%ul
+  - @statistics.each do |statistic|
+    %li= "#{statistic.name}: #{statistic.value} / #{statistic.maximum}"

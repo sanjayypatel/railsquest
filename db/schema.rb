@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408175216) do
+ActiveRecord::Schema.define(version: 20160408215314) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -35,8 +35,10 @@ ActiveRecord::Schema.define(version: 20160408175216) do
     t.integer  "minimum"
     t.integer  "maximum"
     t.string   "unit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "describable_id"
+    t.string   "describable_type"
   end
 
 end

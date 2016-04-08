@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408172634) do
+ActiveRecord::Schema.define(version: 20160408175216) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160408172634) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.integer  "minimum"
+    t.integer  "maximum"
+    t.string   "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

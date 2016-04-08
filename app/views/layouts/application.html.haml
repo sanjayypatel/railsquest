@@ -7,5 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %h1= link_to "RailsQuest", root_path
+    = link_to "Characters", characters_path
+    = link_to "Items", items_path
     .centered-content
       = yield

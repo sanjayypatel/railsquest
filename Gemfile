@@ -52,8 +52,10 @@ group :development do
 end
 
 # add pry for alternative to IRB/rails console
-# gem 'pry-rails', :group => :development
+ gem 'pry-rails', :group => :development
 
 # haml for rails
 gem 'haml'
 gem 'haml-rails'
+
+gem 'faker', '~> 1.6.3'

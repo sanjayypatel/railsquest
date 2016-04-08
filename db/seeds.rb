@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+if Rails.env.development?
+
+# Seed Characters
+  10.times do |n|
+    character = Character.new(
+      name: Faker::Name.name,
+      nickname: Faker::StarWars.droid,
+      bio: Faker::Lorem.paragraph(5)
+      )
+    character.save!
+  end
+  puts "#{Character.count} characters created."
+end
+puts "Finished Seeding."

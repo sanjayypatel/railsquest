@@ -1,0 +1,6 @@
+%h1 Location Info
+= link_to "All Locations in #{@location.game.title}", game_path(@location.game.id)
+.label Name
+%h2= @location.name
+.label Description
+%p= @location.description

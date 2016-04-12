@@ -7,6 +7,14 @@ if Rails.env.development?
       description: Faker::Lorem.paragraph(10)
     )
     game.save!
+    5.times do 
+      location = Location.new(
+        name: Faker::StarWars.planet,
+        description: Faker::Lorem.paragraph(3),
+        game: game
+      )
+      location.save!
+    end
   end
 
   # Seed Snippets
@@ -70,6 +78,7 @@ if Rails.env.development?
 
   puts "#{Snippet.count} snippets created."
   puts "#{Game.count} games created."
+  puts "#{Location.count} locations created."
   puts "#{Item.count} items created."
   puts "#{Statistic.count} stats created."
 end

@@ -1,5 +1,10 @@
 %h1 Item Info
-= link_to "All Items", items_path
+- if !@item.character.nil?
+  Held by 
+  = link_to @item.character.name, character_path(@item.character)
+- if !@item.location.nil?
+  At 
+  = link_to @item.location.name, location_path(@item.location)
 .label Name
 %h2= @item.name
 .label Quantity

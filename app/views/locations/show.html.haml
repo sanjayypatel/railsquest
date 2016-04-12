@@ -1,6 +1,18 @@
 %h1 Location Info
-= link_to "All Locations in #{@location.game.title}", game_path(@location.game.id)
+= link_to @location.game.title, game_path(@location.game.id)
 .label Name
 %h2= @location.name
 .label Description
 %p= @location.description
+- if @location.snippets.count > 0
+  .label Snippets
+  - @location.snippets.each do |snippet|
+    .snippet-listing
+      %h2= snippet.title
+      = link_to "View", snippet_path(snippet.id)
+- if @location.items.count > 0
+  .label Items
+  - @location.items.each do |item|
+    .item-listing
+      %h2= item.name
+      = link_to "View", item_path(item.id)

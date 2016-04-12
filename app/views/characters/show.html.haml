@@ -1,5 +1,5 @@
 %h1 Character Info
-= link_to "All Characters", characters_path
+= link_to @character.game.title, game_path(@character.game)
 .label Name
 %h2= @character.name
 .label Nickname
@@ -10,3 +10,9 @@
 %ul
   - @statistics.each do |statistic|
     %li= "#{statistic.name}: #{statistic.value} / #{statistic.maximum}"
+- if @character.items.count > 0
+  .label Items
+  - @character.items.each do |item|
+    .item-listing
+      %h2= item.name
+      = link_to "View", item_path(item.id)

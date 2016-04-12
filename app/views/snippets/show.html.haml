@@ -1,5 +1,8 @@
 %h1 Snippet Info
-= link_to "All Snippets", snippets_path
+- if !@snippet.parent.nil?
+  = link_to @snippet.parent.title, snippet_path(@snippet.parent)
+- if !@snippet.location.nil?
+  = link_to @snippet.location.name, location_path(@snippet.location)
 .label Snippet
 %h2= @snippet.title
 .label Body

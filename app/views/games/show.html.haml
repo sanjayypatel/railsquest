@@ -8,4 +8,9 @@
   .label Locations
   %ul
     - @game.locations.each do |location|
-      %li= link_to location.name, location_path(location.id)
+      %li= link_to location.name, location_path(location)
+- if @game.characters.count > 0
+  .label Characters
+  %ul
+    - @game.characters.each do |character|
+      %li= link_to character.name, character_path(character)

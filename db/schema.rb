@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412194256) do
+ActiveRecord::Schema.define(version: 20160412234711) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20160412194256) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "game_id"
   end
+
+  add_index "characters", ["game_id"], name: "index_characters_on_game_id"
 
   create_table "games", force: :cascade do |t|
     t.string   "title"
@@ -32,9 +35,14 @@ ActiveRecord::Schema.define(version: 20160412194256) do
     t.string   "name"
     t.integer  "quantity"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "location_id"
+    t.integer  "character_id"
   end
+
+  add_index "items", ["character_id"], name: "index_items_on_character_id"
+  add_index "items", ["location_id"], name: "index_items_on_location_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -49,11 +57,13 @@ ActiveRecord::Schema.define(version: 20160412194256) do
   create_table "snippets", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "parent_id"
+    t.integer  "location_id"
   end
 
+  add_index "snippets", ["location_id"], name: "index_snippets_on_location_id"
   add_index "snippets", ["parent_id"], name: "index_snippets_on_parent_id"
 
   create_table "statistics", force: :cascade do |t|

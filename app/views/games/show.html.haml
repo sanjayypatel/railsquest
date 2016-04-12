@@ -6,7 +6,7 @@
 %p= @game.description
 - if @game.locations.count > 0
   .label Locations
-  %ul
+  %ul 
     - @game.locations.each do |location|
       %li= link_to location.name, location_path(location)
 - if @game.characters.count > 0

@@ -1,0 +1,5 @@
+%h1 Games
+- @games.each do |game|
+  .game-listing
+    %h2= game.title
+    = link_to "View", game_path(game.id)

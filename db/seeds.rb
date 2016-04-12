@@ -1,5 +1,14 @@
 if Rails.env.development?
 
+  # Seed Games
+  2.times do
+    game = Game.new(
+      title: Faker::Book.title,
+      description: Faker::Lorem.paragraph(10)
+    )
+    game.save!
+  end
+
   # Seed Characters
   10.times do
     character = Character.new(
@@ -40,6 +49,8 @@ if Rails.env.development?
       )
     statistic.save!
   end
+
+  puts "#{Game.count} games created."
   puts "#{Item.count} items created."
   puts "#{Statistic.count} stats created."
 end

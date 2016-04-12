@@ -1,0 +1,5 @@
+%h1 Snippets
+- @snippets.each do |snippet|
+  .snippet-listing
+    %h2= snippet.title
+    = link_to "View", snippet_path(snippet.id)

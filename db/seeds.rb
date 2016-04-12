@@ -1,12 +1,30 @@
 if Rails.env.development?
 
   # Seed Games
-  2.times do
+  5.times do
     game = Game.new(
       title: Faker::Book.title,
       description: Faker::Lorem.paragraph(10)
     )
     game.save!
+  end
+
+  # Seed Snippets
+  20.times do
+    snippet = Snippet.new(
+      title: Faker::Book.title,
+      body: Faker::Lorem.paragraph(15)
+    )
+    snippet.save!
+  end
+  snippets = Snippet.all
+  10.times do 
+    snippet = Snippet.new(
+      title: Faker::Book.title,
+      body: Faker::Lorem.paragraph(15),
+      parent: snippets.sample
+    )
+    snippet.save!
   end
 
   # Seed Characters
@@ -50,6 +68,7 @@ if Rails.env.development?
     statistic.save!
   end
 
+  puts "#{Snippet.count} snippets created."
   puts "#{Game.count} games created."
   puts "#{Item.count} items created."
   puts "#{Statistic.count} stats created."

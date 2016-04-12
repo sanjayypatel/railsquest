@@ -1,0 +1,11 @@
+%h1 Snippet Info
+= link_to "All Snippets", snippets_path
+.label Snippet
+%h2= @snippet.title
+.label Body
+%p= @snippet.body
+- if @snippet.children.count > 0
+  .label Children
+  %ul
+    - @snippet.children.each do |snippet|
+      %li= link_to snippet.title, snippet_path(snippet.id)
